@@ -57,15 +57,6 @@ add_action('wp_body_open', 'wcd_page_loader');
 
 function wcd_pageloader_customiser($wp_customize)
 {
-	$wp_customize->add_section('pageloader_panel', array(
-		'priority' 				=> 10,
-		'capability' 			=> 'edit_theme_options',
-		'theme_supports'	=> '',
-		'title'          	=> __('Page Loader', 'wcd'),
-		'description'    	=> __('Add a custom SVG page laoder', 'wcd'),
-		'panel' 					=> 'title_tagline',
-	));
-
 	$wp_customize->add_setting('pageloader_svg', array(
 		'default' 		=> '',
 		'type' 				=> 'theme_mod',
@@ -75,8 +66,8 @@ function wcd_pageloader_customiser($wp_customize)
 
 	$wp_customize->add_control('pageloader_svg', array(
 		'type' 				=> 'textarea',
-		'priority' 		=> 10,
-		'section' 		=> 'pageloader_panel',
+		'priority' 		=> 160,
+		'section' 		=> 'title_tagline',
 		'label' 			=> __('SVG Code', 'wcd'),
 		'description'	=> '',
 	));
